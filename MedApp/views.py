@@ -48,6 +48,8 @@ def predict(request):
 
     model = load_model(MODEL_PATH)
     
-    serializer = MedicineDetectSerializer(data=request.data)
+    serializer = MedicineDetectSerializer(data=request.FILES)
     if serializer.is_valid():
         serializer.save()
+    
+    return JsonResponse({"Status":"200"})
