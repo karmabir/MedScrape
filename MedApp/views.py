@@ -4,7 +4,7 @@ import os
 import glob
 import re
 import json
-from django.http.response import HttpResponse
+from django.http.response import JsonResponse
 import numpy as np
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from tensorflow.keras.models import load_model
@@ -40,7 +40,7 @@ def formsubmit(request):
     with open(file_name, 'w') as json_file:
         json.dump(form_dict, json_file)
 
-    return HttpResponse("Saved!")
+    return JsonResponse({"Status":"200"})
 
 
 @api_view(['GET','POST'])
