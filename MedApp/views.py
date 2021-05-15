@@ -46,10 +46,23 @@ def formsubmit(request):
 @api_view(['GET','POST'])
 def predict(request):
 
-    model = load_model(MODEL_PATH)
-    
     serializer = MedicineDetectSerializer(data=request.FILES)
     if serializer.is_valid():
         serializer.save()
     
+    model = load_model(MODEL_PATH)
+    img_name = str(request.FILES['upload'])
+    img_path = 'static/uploads/' + str(img_name)
+    print(img_name, img_path)
+    img = image.load_img(img_path, target_size=(224, 224))
+    x = image.img_to_array(img)
+    x=x/255
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    preds = model.predict(x)
+    preds=np.argmax(preds, axis=1)
+
+    print(preds)
+
     return JsonResponse({"Status":"200"})

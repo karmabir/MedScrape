@@ -1,1 +1,25 @@
 static/model_inception.h5
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+FrontEnd/node_modules
+FrontEnd/.pnp
+FrontEnd/.pnp.js
+
+# testing
+FrontEnd/coverage
+
+# production
+FrontEnd/build
+
+# misc
+FrontEnd/.DS_Store
+FrontEnd/.env.local
+FrontEnd/.env.development.local
+FrontEnd/.env.test.local
+FrontEnd/.env.production.local
+
+FrontEnd/npm-debug.log*
+FrontEnd/yarn-debug.log*
+FrontEnd/yarn-error.log*
