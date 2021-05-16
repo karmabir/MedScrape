@@ -18,7 +18,7 @@ class MedicineInfo extends React.Component{
                 "Medicine",
                 this.props.location.state.key
             );
-            axios.post("http://localhost:8000/information/ ", formData).then(response =>{
+            axios.post("http://18.191.173.17:8000/information/ ", formData).then(response =>{
                 this.setState({
                     medicinename:response.data.MedicineName,
                     introduction:response.data.Introduction,

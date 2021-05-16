@@ -35,7 +35,7 @@ class HomePage extends Component {
                 "upload",
                 files[0]
             );
-            axios.post("http://localhost:8000/predict/", formData).then(response =>{
+            axios.post("http://18.191.173.17:8000/predict/", formData).then(response =>{
                 this.props.history.push({
                     pathname:"/medinfo",
                     state:{
@@ -54,7 +54,7 @@ class HomePage extends Component {
                 "upload",
                 e.target.files[0]
             );
-            axios.post("http://localhost:8000/predict/", formData).then(response =>{
+            axios.post("http://18.191.173.17:8000/predict/", formData).then(response =>{
                 this.props.history.push({
                     pathname:"/medinfo",
                     state:{

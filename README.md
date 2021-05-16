@@ -30,6 +30,15 @@ The image classification is done using Transfer Learning model InceptionV3 which
 processes the medicine image given by the patient/user on our website and provides the user with
 the correct information which is rendered on the web page.
 
+<h3>Note</h3>
+The Model is currently trained for the following Medicines :
+<ul>
+  <li>Allegra</li>
+  <li>Antacid</li>
+  <li>Paracetamol</li>
+  <li>Statin</li>
+</ul>
+
 <h1>Team Members </h1>
 <ul>
   <li>Samank Gupta</li>

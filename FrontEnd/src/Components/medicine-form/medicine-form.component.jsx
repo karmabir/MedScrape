@@ -45,7 +45,7 @@ class AddForm extends React.Component {
         event.preventDefault();
         await axios({
             method: 'post',
-            url: 'http://localhost:8000/formsubmit/',
+            url: 'http://18.191.173.17:8000/formsubmit/',
             data: qs.stringify(this.state),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
