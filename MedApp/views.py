@@ -12,7 +12,7 @@ from tensorflow.python.client.session import Session
 from tensorflow.python.framework.ops import Graph
 from .serializers import FormSubmitSerializer, MedicineDetectSerializer
 
-MODEL_PATH ='model/model_inception2.h5'
+MODEL_PATH ='model/model_inception.h5'
 
 model_graph = Graph()
 with model_graph.as_default():
@@ -67,8 +67,23 @@ def predict(request):
   
     preds=np.argmax(preds, axis=1)
 
-    print(preds[0])
+    medicine = int(preds[0])
+
+    if medicine==0:
+        with open('static/Allegra.json') as f:
+            data = json.load(f)
+    elif medicine==1:
+        with open('static/Antacid.json') as f:
+            data = json.load(f)
+    elif medicine==2:
+        with open('static/Paracetamol.json') as f:
+            data = json.load(f)
+    elif medicine==3:
+        with open('static/Statin.json') as f:
+            data = json.load(f)
+    
+
 
     os.remove(img_path)
 
-    return JsonResponse({"Prediction":int(preds[0])})
+    return JsonResponse({"Prediction":medicine})
