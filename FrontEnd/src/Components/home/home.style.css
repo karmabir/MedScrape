@@ -1,21 +1,83 @@
+.wrapper {
+  min-height: 90vh;
+  display: flex;
+  padding: 50px 15px;
+}
+@media screen and (max-width: 700px), (max-height: 500px) {
+  .wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+.card-list {
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 480px) {
+  .card-list {
+    margin-bottom: 0px;
+  }
+}
+.card-form {
+  max-width: 570px;
+  margin: auto;
+  width: 100%;
+}
+@media screen and (max-width: 576px) {
+  .card-form {
+    margin: 0 auto;
+  }
+}
+.card-form__i {
+  background: #fff;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  border-radius: 10px;
+  padding: 35px;
+}
+@media screen and (max-width: 480px) {
+  .card-form__inner {
+    padding: 25px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .card-form__inner {
+    padding: 15px;
+  }
+}
+.card-item {
+  max-width: 600px;
+  height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  .card-item {
+    max-width: 310px;
+    height: 220px;
+    width: 90%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .card-item {
+    height: 180px;
+  }
+}
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center !important;
-  margin-top: 10%;
-  color: #4aa1f3;
+  color: #292929;
   font-weight: bold;
 }
 
 .content {
   background-color: white;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.container {
-  transform: translateY(-100%);
 }
 
 .container p {
@@ -27,23 +89,118 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  width: 800px;
-  height: 200px;
-  border: 4px dashed #4aa1f3;
+  margin: 1;
+  width: auto;
+  height: 180px;
+  border-radius: 15px;
+  border: 3px dashed #ad2e24;
+  background-color: #27292b;
 }
 .upload-icon {
   width: 50px;
   height: 50px;
-
+  background: url(../images/cardiogram.png) no-repeat center center;
+  background-size: 100%;
   text-align: center;
   margin: 0 auto;
-  padding-top: 30px;
 }
 
 .drop-message {
   text-align: center;
-  color: #4aa1f3;
+  color: #e9eef2;
   font-family: Arial;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.file-display-container {
+  position: fixed;
+  width: 805px;
+}
+
+.file-status-bar {
+  width: 100%;
+  vertical-align: top;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  line-height: 50px;
+  height: 50px;
+}
+
+.file-status-bar > div {
+  overflow: hidden;
+}
+
+.file-type {
+  display: inline-block !important;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 13px;
+  margin-top: 25px;
+  padding: 0 4px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px #abc;
+  color: #fff;
+  background: #0080c8;
+  text-transform: uppercase;
+}
+
+.file-name {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 50px;
+  color: #4aa1f3;
+}
+
+.file-error {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 50px;
+  color: #9aa9bb;
+}
+
+.file-error-message {
+  color: red;
+}
+
+.file-type-logo {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+
+.file-size {
+  display: inline-block;
+  vertical-align: top;
+  color: #30693d;
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-left: 10px;
+  color: #444242;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.file-remove {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  line-height: 15px;
+  cursor: pointer;
+  color: red;
+  margin-right: -10px;
+}
+.clicktoupload {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 400px;
+  height: 200px;
+  border-radius: 15px;
+  border: 3px dashed #4aa1f3;
+  background-color: #4aa1f312;
+  opacity: 0;
 }

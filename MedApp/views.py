@@ -47,7 +47,7 @@ def formsubmit(request):
     return JsonResponse({"Status":"200"})
 
 
-@api_view(['GET','POST'])
+@api_view(['POST'])
 def predict(request):
 
     serializer = MedicineDetectSerializer(data=request.FILES)
@@ -69,21 +69,49 @@ def predict(request):
 
     medicine = int(preds[0])
 
-    if medicine==0:
-        with open('static/Allegra.json') as f:
-            data = json.load(f)
-    elif medicine==1:
-        with open('static/Antacid.json') as f:
-            data = json.load(f)
-    elif medicine==2:
-        with open('static/Paracetamol.json') as f:
-            data = json.load(f)
-    elif medicine==3:
-        with open('static/Statin.json') as f:
-            data = json.load(f)
-    
-
-
     os.remove(img_path)
+    print(medicine)
+    return JsonResponse({"Medicine":medicine})
 
-    return JsonResponse({"Prediction":medicine})
+@api_view(['POST'])
+def information(request):
+    
+    med_details = {}
+
+    medicine = int(request.POST['Medicine'])
+
+    if medicine==0:
+        with open('static/json/Allegra.json') as f:
+            data = json.load(f)
+            med_details['MedicineName']=data['MedicineName']
+            med_details['Introduction']=data['Introduction']
+            med_details['WhenToTake']=data['WhenToTake']
+            med_details['SideEffects']=data['SideEffects']
+    
+    elif medicine==1:
+        with open('static/json/Antacid.json') as f:
+            data = json.load(f)
+            med_details['MedicineName']=data['MedicineName']
+            med_details['Introduction']=data['Introduction']
+            med_details['WhenToTake']=data['WhenToTake']
+            med_details['SideEffects']=data['SideEffects']
+    
+    elif medicine==2:
+        with open('static/json/Paracetamol.json') as f:
+            data = json.load(f)
+            med_details['MedicineName']=data['MedicineName']
+            med_details['Introduction']=data['Introduction']
+            med_details['WhenToTake']=data['WhenToTake']
+            med_details['SideEffects']=data['SideEffects']
+    
+    elif medicine==3:
+        with open('static/json/Statin.json') as f:
+            data = json.load(f)
+            med_details['MedicineName']=data['MedicineName']
+            med_details['Introduction']=data['Introduction']
+            med_details['WhenToTake']=data['WhenToTake']
+            med_details['SideEffects']=data['SideEffects']
+    
+    print(med_details)
+
+    return JsonResponse(med_details)

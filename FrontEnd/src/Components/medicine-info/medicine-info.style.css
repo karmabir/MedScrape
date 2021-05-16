@@ -1,0 +1,66 @@
+.wrapper-med-info {
+    min-height: 100vh;
+    display: flex;
+    padding: 15px 15px;
+  }
+  @media screen and (max-width: 700px), (max-height: 500px) {
+    .wrapper-med-info {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  }
+  .card-list-med-info {
+    margin-bottom: 0px;
+  }
+  @media screen and (max-width: 480px) {
+    .card-list-med-info {
+      margin-bottom: 0px;
+    }
+  }
+  .card-form-med-info {
+    max-width: 80%;
+    margin: auto;
+    width: 100%;
+  }
+  @media screen and (max-width: 576px) {
+    .card-form-med-info {
+      margin: 0 auto;
+    }
+  }
+  .card-form__i-med-info {
+    background: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 10px;
+    padding: 35px;
+  }
+  @media screen and (max-width: 480px) {
+    .card-form__i-med-info {
+      padding: 25px;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .card-form__i-med-info {
+      padding: 15px;
+    }
+  }
+  .card-item-med-info {
+    max-width: 80%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  @media screen and (max-width: 480px) {
+    .card-item-med-info {
+      max-width: 310px;
+      height: 220px;
+      width: 90%;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .card-item-med-info {
+      height: 180px;
+    }
+  }

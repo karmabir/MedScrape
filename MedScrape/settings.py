@@ -25,7 +25,7 @@ SECRET_KEY = '1s5e7ey*45!x!82%yv5kyzpk_u%z1^3j6z++^$bm#!9jo9v3^w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,13 +42,12 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
