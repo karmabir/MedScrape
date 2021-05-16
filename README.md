@@ -6,6 +6,7 @@
 </p>
 <h1 align="center">MedScrape 💊</h1>
 <p align="center">To irradicate common Medication mistakes.</p>
+<p align="center"><a href="https://medscrape.netlify.app/">Visit The Website -></a></p>
 
 <h1>Introduction 📔</h1>
 
@@ -28,6 +29,12 @@ when to consume.
 The image classification is done using Transfer Learning model InceptionV3 which 
 processes the medicine image given by the patient/user on our website and provides the user with
 the correct information which is rendered on the web page.
+
+<h1>Team Members </h1>
+- Samank Gupta
+- Kanav Mittal
+- Sarthak Tyagi
+- Karmabir Chakraborty
 
 <h1>Built With 💻</h1>
 
