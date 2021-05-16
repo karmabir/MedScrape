@@ -31,10 +31,11 @@ processes the medicine image given by the patient/user on our website and provid
 the correct information which is rendered on the web page.
 
 <h1>Team Members </h1>
-- Samank Gupta
-- Kanav Mittal
-- Sarthak Tyagi
-- Karmabir Chakraborty
+<ul>
+  <li>Samank Gupta</li>
+  <li>Kanav Mittal</li>
+  <li>Sarthak Tyagi</li>
+  <li>Karmabir Chakraborty</li>
 
 <h1>Built With 💻</h1>
 
