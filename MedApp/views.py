@@ -1,10 +1,6 @@
 from __future__ import division, print_function
-import sys
-import os
-import glob
-import re
 import json
-from django.http.response import JsonResponse
+import os
 import numpy as np
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from tensorflow.keras.models import load_model
@@ -12,9 +8,17 @@ from tensorflow.keras.preprocessing import image
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from tensorflow.python.client.session import Session
+from tensorflow.python.framework.ops import Graph
 from .serializers import FormSubmitSerializer, MedicineDetectSerializer
 
-MODEL_PATH ='static/model_inception.h5'
+MODEL_PATH ='model/model_inception2.h5'
+
+model_graph = Graph()
+with model_graph.as_default():
+    tf_session = Session()
+    with tf_session.as_default():
+        model = load_model(MODEL_PATH)
 
 @api_view(['POST'])
 def formsubmit(request):
@@ -50,19 +54,21 @@ def predict(request):
     if serializer.is_valid():
         serializer.save()
     
-    model = load_model(MODEL_PATH)
-    img_name = str(request.FILES['upload'])
-    img_path = 'static/uploads/' + str(img_name)
-    print(img_name, img_path)
+    img_name = request.FILES['upload']
+    img_path = './media/media/'+ img_name.name
     img = image.load_img(img_path, target_size=(224, 224))
-    x = image.img_to_array(img)
-    x=x/255
-    x = np.expand_dims(x, axis=0)
-    x = preprocess_input(x)
+    output = image.img_to_array(img)
+    output/=255
+    x = np.expand_dims(output, axis=0)
 
-    preds = model.predict(x)
+    with model_graph.as_default():
+        with tf_session.as_default():
+            preds = model.predict(x)
+  
     preds=np.argmax(preds, axis=1)
 
-    print(preds)
+    print(preds[0])
 
-    return JsonResponse({"Status":"200"})
+    os.remove(img_path)
+
+    return JsonResponse({"Prediction":int(preds[0])})

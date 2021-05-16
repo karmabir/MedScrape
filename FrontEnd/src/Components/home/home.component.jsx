@@ -12,7 +12,7 @@ class HomePage extends Component {
     onFileChange = event => {
 
         this.setState({ selectedFile: event.target.files[0] });
-
+        console.log(event.target.files)
     };
 
     // On file upload (click the upload button)

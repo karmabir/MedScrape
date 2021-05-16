@@ -7,4 +7,4 @@ class FormSubmit(models.Model):
     SideEffects = models.CharField(max_length=5000)
 
 class MedicineDetect(models.Model):
-    upload = models.ImageField(upload_to ='static/uploads/')
+    upload = models.ImageField(upload_to ='media/')
