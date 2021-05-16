@@ -36,6 +36,7 @@ the correct information which is rendered on the web page.
   <li>Kanav Mittal</li>
   <li>Sarthak Tyagi</li>
   <li>Karmabir Chakraborty</li>
+</ul>
 
 <h1>Built With 💻</h1>
 
